@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Disability Services Program [Metadata Management System]</title>
+    <link rel="stylesheet" href="../../assets/css/layout.css" type="text/css" media="screen" />
+    <!--<link rel="stylesheet" href="../../libs/jquery-ui-1.8.23/jquery-ui-1.8.23.custom.css" type="text/css" media="screen"/>-->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="../../libs/fancyapps-fancyBox/source/jquery.fancybox.css" type="text/css" media="screen"/>
+    <!--[if lt IE 9]>
+    <link rel="stylesheet" href="../../assets/css/ie.css" type="text/css" media="screen"/>
+    <![endif]-->
+    <link rel="stylesheet" href="../../libs/plupload/js/jquery.plupload.queue/css/jquery.plupload.queue.css" type="text/css" media="screen" />
+    <link rel="shortcut icon" href="../../images/du_favicon.ico" type="image/x-icon" />
+    <script src="../../assets/js/modernizr-2.6.2.min.js"></script>
+</head>
+<header id="header">
+    <hgroup>
+        <h1 id="du_logo" class="site_title"><a href=""></a></h1>
+        <h2 class="section_title">Disability Services Program [Metadata Management System]</h2>
+    </hgroup>
+</header> <!-- end of header bar -->
+<body>
+<section id="secondary_bar">
+    <div class="user">
+        <p id="user-role"></p>
+    </div>
+    <div class="breadcrumbs_container">
+        <article class="breadcrumbs"><a href="#">Dashboard</a><div class="breadcrumb_divider"></div><a class="current">Home</a></article>
+    </div>
+</section><!-- end of secondary bar -->
+<aside id="sidebar" class="column">
+    <form id="search_box" name="search_box" class="quick_search">
+        <input name="keyword" id="quickSearch" type="text" placeholder="Search">
+        <input name="filter" id="filter" type="hidden" value="<?php echo $collectionFilter; ?>" />
+        <input id="quickSearchButton" type="submit" value="Go" />
+        <br />
+        <div><p id="search-message"></p></div>
+    </form>
+    <hr/>
+    <h3>Catalog Objects</h3>
+    <ul id="catalog">
+        <!-- Create module to handle specific dsp files (PDF, Kes -->
+        <!--
+        <li id="upload" class="icn_new_article"><a href="#" onclick="MMS.xml.createUploadArea(); return false;">Batch XML Files</a></li>
+        -->
+        <li id="ingest" class="icn_new_article"><a href="#" onclick="MMS.nas.createUploadArea(); return false;">Import Files</a></li>
+        <li id="dsp" class="icn_new_article"><a href="#" onclick="MMS.metadata.loadForm(); return false;">Metadata Form</a></li>
+        <li id="batch" class="icn_categories"><a href="#">Expose records to eBook Repository</a></li>
+    </ul>
+    <h3 class="optional_fields">Optional Fields</h3>
+    <ul id="optional_fields"></ul>
+    <!-- TODO: refactor using javascript instead... -->
+    <?php if ($user['roleID'] == "1" || $user['roleID'] == "3") { ?>
+    <h3>Admin</h3>
+    <!--
+    <ul id="admin">
+        <?php // TODO: refactor to use JavaScript instead
+            if ($user['roleID'] == "3") {
+                //echo '<li id="addCollection" class="icn_categories"><a href="#">Add Collection</a></li>';
+        //echo '<li id="viewCollections" class="icn_categories"><a href="#">View Collections</a></li>';
+        }
+        ?>
+        <li id="addUser" class="icn_add_user"><a href="#">Add User</a></li>
+        <li id="viewUsers" class="icn_view_users"><a href="#">View Users</a></li>
+    </ul>
+    <?php } ?>
+    -->
+    <ul><li class="icn_jump_back"><a href="#" id="logout">Logout</a></li></ul>
+    <footer>
+        <hr />
+        <p><strong>University of Denver<br />University Libraries</strong></p>
+        <br /><p><strong>Disability Services Program<br /> Metadata Management System<br />v.1.0</strong></p><br />
+    </footer>
+</aside><!-- end of sidebar -->
+<section id="main" class="column">
+    <div id="search-results"></div>
+    <div id="message"></div>
+    <div id="content"><div class="clear"></div></div>
+</section>
+<!-- jQuery libs -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../libs/jquery/jquery-1.8.1.min.js"><\/script>')</script>
+<!--<script src="../../libs/jquery-ui-1.8.23/jquery-ui-1.8.23.custom.min.js"></script>-->
+<script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+<script src="../../libs/jquery-validate/dist/jquery.validate.min.js"></script>
+<!--BEGINMMSPROD
+<script src="../../libs/mms/edu.du.library.mms.client.app.min.js"></script>
+ENDMMSPROD-->
+<!-- #BEGINMMSDEV -->
+<script src="../../libs/mms/edu.du.library.mms.namespace.js"></script>
+<script src="../../libs/mms/edu.du.library.mms.utils.js"></script>
+<script src="../../libs/mms/edu.du.library.mms.controlledVocabularies.js"></script>
+<script src="../../libs/mms/edu.du.library.mms.metadata.js"></script>
+<script src="../../libs/mms/edu.du.library.mms.user.js"></script>
+<script src="../../libs/mms/edu.du.library.mms.collections.js"></script>
+<script src="../../libs/mms/edu.du.library.mms.login.js"></script>
+<script src="../../libs/mms/edu.du.library.mms.search.js"></script>
+<script src="../../libs/mms/edu.du.library.mms.pagination.js"></script>
+<script src="../../libs/mms/edu.du.library.mms.batch.js"></script>
+<script src="../../libs/mms/edu.du.library.mms.xml.js"></script>
+<script src="../../libs/mms/edu.du.library.mms.nas.js"></script>
+<script src="../../libs/mms/edu.du.library.mms.queue.js"></script>
+<script src="../../libs/mms/edu.du.library.mms.view.js"></script>
+<script src="../../libs/mms/edu.du.library.mms.config.dsp.form.js"></script>
+<script src="../../libs/mms/edu.du.library.mms.config.urls.js"></script>
+<script src="../../libs/mms/edu.du.library.mms.init.js"></script>
+<!-- ENDMMSDEV -->
+<script src="../../libs/plupload/js/browserplus.js"></script>
+<script src="../../libs/plupload/js/plupload.full.js"></script>
+<script src="../../libs/plupload/js/jquery.plupload.queue/jquery.plupload.queue.js"></script>
+<script src="../../libs/fancyapps-fancyBox/source/jquery.fancybox.pack.js"></script>
+<script src="../../assets/js/hideshow.js"></script>
+<script src="../../assets/js/jquery.tablesorter.min.js"></script>
+<script src="../../assets/js/jquery.equalHeight.js"></script>
+<script src="../../assets/js/tablesorter.init.js"></script>
+<script src="../../assets/js/console.js"></script>
+<script>$(document).ready(function() { MMS.user.getSessionInfo(); });</script>
+</body>
+</html>

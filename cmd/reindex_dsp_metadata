@@ -1,0 +1,3 @@
+curl -X POST \
+  http://localhost:3005/api/v2/dsp/index \
+  -H 'cache-control: no-cache'

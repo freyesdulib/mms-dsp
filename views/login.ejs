@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Disability Services Program [Metadata Management System]</title>
+    <link rel="stylesheet" href="assets/css/layout.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="libs/jquery-ui-1.8.23/jquery-ui-1.8.23.custom.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="libs/fancyapps-fancyBox/source/jquery.fancybox.css" type="text/css" media="screen"/>
+    <!--[if lt IE 9]>
+    <link rel="stylesheet" href="assets/css/ie.css" type="text/css" media="screen"/>
+    <![endif]-->
+    <link rel="shortcut icon" href="images/du_favicon.ico" type="image/x-icon" />
+    <script src="assets/js/modernizr-2.6.2.min.js"></script>
+</head>
+<header id="header">
+    <hgroup>
+        <h1 id="du_logo" class="site_title"><a href=""></a></h1>
+        <h2 class="section_title">Disability Services Program [Metadata Management System]</h2>
+    </hgroup>
+</header> <!-- end of header bar -->
+<body>
+<!--[if lt IE 8]>
+<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+<![endif]-->
+<section id="secondary_bar">
+    <div class="user"></div>
+    <div class="breadcrumbs_container"></div>
+</section><!-- end of secondary bar -->
+<aside id="sidebar" class="column">
+    <footer>
+        <hr />
+        <p><strong>University of Denver<br />University Libraries</strong></p>
+        <br /><p><strong>Disability Services Program<br />Metadata Management System<br />v.1.0</strong></p><br />
+    </footer>
+</aside><!-- end of sidebar -->
+<section id="main" class="column">
+    <div id="loginActionFeedback"></div>
+    <div id="error"></div>
+    <article class="module width_3_quarter">
+        <header><h3 id="message"></h3></header>
+        <form id="login-form" method="post">
+            <div id="login" class="module_content">
+                <fieldset>
+                    <label for="userName">DU ID</label>
+                    <input name="userName" id="userName" type="text" placeholder="Enter your DU ID."><!-- class="required Please enter your DU ID digits" -->
+                </fieldset>
+                <fieldset>
+                    <label for="passWord">Passcode</label>
+                    <input name="passWord" id="passWord" type="password" placeholder="Enter your passcode."><!--  class="required" -->
+                </fieldset>
+            </div>
+            <footer>
+                <div class="submit_link">
+                    <input id="authenticate" type="submit" value="Login">
+                </div>
+            </footer>
+        </form>
+    </article><!-- end of post new article -->
+</section>
+<!-- jQuery libs -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="libs/jquery/jquery-1.8.1.min.js"><\/script>')</script>
+<script src="libs/jquery-validate/dist/jquery.validate.min.js"></script>
+<!--BEGINMMSPROD
+<script src="libs/mms/edu.du.library.mms.client.app.min.js"></script>
+ENDMMSPROD-->
+<!-- #BEGINMMSDEV -->
+<script src="libs/mms/edu.du.library.mms.namespace.js"></script>
+<script src="libs/mms/edu.du.library.mms.utils.js"></script>
+<script src="libs/mms/edu.du.library.mms.login.js"></script>
+<script src="libs/mms/edu.du.library.mms.config.urls.js"></script>
+<!-- ENDMMSDEV -->
+<script src="libs/fancyapps-fancyBox/source/jquery.fancybox.pack.js"></script>
+<script>
+    $(function() {
+        // MMS.utils.pingServices();
+        MMS.login.init();
+    });
+</script>
+</body>
+</html>
